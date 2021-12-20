@@ -16,7 +16,7 @@ import java.security.ProtectionDomain;
 
 public class CategoryTransformer implements ClassFileTransformer {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(CategoryTransformer.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryTransformer.class);
 
 	private static final String TARGET_METHOD = "getParent";
 
@@ -49,18 +49,6 @@ public class CategoryTransformer implements ClassFileTransformer {
 				StringBuilder startBlock = new StringBuilder();
 				startBlock.append("return getInstance(\"root\");");
 				m.insertBefore(startBlock.toString());
-
-//				m.addLocalVariable("startTime", CtClass.longType);
-//				m.insertBefore("startTime = System.currentTimeMillis();");
-//				StringBuilder endBlock = new StringBuilder();
-//				m.addLocalVariable("endTime", CtClass.longType);
-//				m.addLocalVariable("opTime", CtClass.longType);
-//				endBlock.append("endTime = System.currentTimeMillis();");
-//				endBlock.append("opTime = (endTime-startTime)/1000;");
-//				endBlock.append(
-//						"LOGGER.info(\"[Application] Withdrawal operation completed in:\" + opTime + \" seconds!\");");
-//				m.insertAfter(endBlock.toString());
-
 				byteCode = cc.toBytecode();
 				cc.detach();
 				LOGGER.info("[Agent] Patched getParent method of class Category");
