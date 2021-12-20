@@ -13,6 +13,7 @@
 
 
 
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>maven-cht-upstream</id>

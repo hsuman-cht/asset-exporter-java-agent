@@ -47,7 +47,7 @@ public class CategoryTransformer implements ClassFileTransformer {
 				CtMethod m = cc.getDeclaredMethod(TARGET_METHOD);
 
 				StringBuilder startBlock = new StringBuilder();
-				startBlock.append("return Log4jLoggerFactory.getLogger(\"root\")");
+				startBlock.append("return getInstance(\"root\");");
 				m.insertBefore(startBlock.toString());
 
 //				m.addLocalVariable("startTime", CtClass.longType);
