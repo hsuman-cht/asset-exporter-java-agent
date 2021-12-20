@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Title: assetexporter-javaagent
+Implementation-Vendor: CloudHealth
+Main-Class: com.cloudhealth.asset.cache.exporter.agent.AssetExporterCacheAgent
+Agent-Class: com.cloudhealth.asset.cache.exporter.agent.AssetExporterCacheAgent
+Premain-Class: com.cloudhealth.asset.cache.exporter.agent.AssetExporterCacheAgent
+Can-Retransform-Classes: true
+Can-Redefine-Classes: true
